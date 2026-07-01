@@ -1,0 +1,829 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Malala Cell — Aksesoris HP</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+<style>
+  :root{
+    --bg: #14171C;
+    --surface: #1C2127;
+    --surface-2: #232933;
+    --copper: #C97C4D;
+    --copper-bright: #E0975F;
+    --cream: #F2EFE9;
+    --muted: #8A8F98;
+    --line: #2C323C;
+    --radius: 14px;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--bg);
+    color:var(--cream);
+    font-family:'Inter', sans-serif;
+    line-height:1.5;
+    overflow-x:hidden;
+  }
+  h1,h2,h3{font-family:'Space Grotesk', sans-serif; font-weight:700; letter-spacing:-0.01em;}
+  .mono{font-family:'JetBrains Mono', monospace;}
+  a{color:inherit; text-decoration:none;}
+  img{max-width:100%; display:block;}
+  .wrap{max-width:1100px; margin:0 auto; padding:0 24px;}
+
+  /* focus visibility */
+  a:focus-visible, button:focus-visible{
+    outline:2px solid var(--copper-bright);
+    outline-offset:3px;
+    border-radius:6px;
+  }
+
+  /* ===== NAV ===== */
+  header{
+    position:sticky; top:0; z-index:50;
+    background:rgba(20,23,28,0.88);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--line);
+  }
+  nav{
+    display:flex; align-items:center; justify-content:space-between;
+    padding:16px 24px;
+  }
+  .logo{
+    display:flex; align-items:center; gap:10px;
+    font-family:'Space Grotesk'; font-weight:700; font-size:1.15rem;
+  }
+  .logo-badge{
+    width:38px; height:38px; border-radius:9px;
+    background:linear-gradient(155deg, var(--copper), #8A5230);
+    display:flex; align-items:center; justify-content:center;
+    color:var(--bg); font-weight:700; font-size:0.95rem;
+    flex-shrink:0;
+  }
+  .logo-note{font-size:0.62rem; color:var(--muted); font-weight:500; display:block; margin-top:1px;}
+  .nav-links{display:flex; align-items:center; gap:22px; font-size:0.92rem; color:var(--muted);}
+  .nav-links a:hover{color:var(--cream);}
+  .nav-cta{
+    background:var(--copper); color:#191510 !important; padding:9px 18px;
+    border-radius:999px; font-weight:600; font-size:0.88rem;
+    white-space:nowrap;
+  }
+  .nav-cta:hover{background:var(--copper-bright);}
+  @media (max-width: 720px){ .nav-links{display:none;} }
+
+  /* ===== SIGNATURE CABLE LINE ===== */
+  .cable-rail{
+    position:absolute; left:50%; top:0; transform:translateX(-50%);
+    width:2px; z-index:0; pointer-events:none;
+  }
+
+  /* ===== HERO ===== */
+  .hero{
+    position:relative;
+    padding:96px 24px 70px;
+    text-align:center;
+    overflow:hidden;
+  }
+  .hero::before{
+    content:"";
+    position:absolute; inset:0;
+    background:
+      radial-gradient(ellipse 600px 300px at 50% 0%, rgba(201,124,77,0.16), transparent 70%);
+    pointer-events:none;
+  }
+  .eyebrow{
+    display:inline-flex; align-items:center; gap:8px;
+    font-family:'JetBrains Mono'; font-size:0.72rem; letter-spacing:0.08em;
+    color:var(--copper-bright); text-transform:uppercase;
+    background:rgba(201,124,77,0.1); border:1px solid rgba(201,124,77,0.3);
+    padding:6px 14px; border-radius:999px; margin-bottom:24px;
+  }
+  .pulse-dot{width:6px; height:6px; border-radius:50%; background:var(--copper-bright); animation:pulse 1.8s infinite;}
+  @keyframes pulse{0%,100%{opacity:1;} 50%{opacity:0.3;}}
+  .hero h1{
+    font-size:clamp(2.1rem, 5.5vw, 3.6rem);
+    line-height:1.08;
+    max-width:780px; margin:0 auto 20px;
+  }
+  .hero h1 span{color:var(--copper);}
+  .hero p{
+    color:var(--muted); font-size:1.05rem; max-width:520px; margin:0 auto 36px;
+  }
+  .hero-actions{display:flex; gap:14px; justify-content:center; flex-wrap:wrap;}
+  .btn-primary{
+    background:var(--copper); color:#191510; padding:14px 28px;
+    border-radius:999px; font-weight:600; font-size:0.95rem;
+    box-shadow:0 8px 24px rgba(201,124,77,0.25);
+    transition:transform .15s ease, background .15s ease;
+  }
+  .btn-primary:hover{background:var(--copper-bright); transform:translateY(-2px);}
+  .btn-ghost{
+    border:1px solid var(--line); color:var(--cream);
+    padding:14px 28px; border-radius:999px; font-weight:600; font-size:0.95rem;
+    transition:border-color .15s ease;
+  }
+  .btn-ghost:hover{border-color:var(--copper);}
+
+  /* connector visual under hero */
+  .connector-visual{
+    margin:56px auto 0; max-width:640px;
+    position:relative; height:64px;
+  }
+  .connector-visual svg{width:100%; height:100%; overflow:visible;}
+
+  /* ===== SECTION HEADERS ===== */
+  .section{padding:64px 24px; position:relative;}
+  .section-head{text-align:center; max-width:560px; margin:0 auto 44px;}
+  .section-tag{
+    font-family:'JetBrains Mono'; font-size:0.72rem; color:var(--copper-bright);
+    text-transform:uppercase; letter-spacing:0.1em; margin-bottom:10px; display:block;
+  }
+  .section-head h2{font-size:clamp(1.5rem, 3vw, 2rem);}
+  .section-head p{color:var(--muted); margin-top:10px; font-size:0.98rem;}
+
+  /* ===== FEATURES ===== */
+  .features{
+    display:grid; grid-template-columns:repeat(4,1fr); gap:16px;
+    max-width:1100px; margin:0 auto;
+  }
+  .feature{
+    background:var(--surface); border:1px solid var(--line); border-radius:var(--radius);
+    padding:24px 20px; position:relative;
+  }
+  .feature::before{
+    content:""; position:absolute; left:0; top:24px; bottom:24px; width:3px;
+    background:var(--copper); border-radius:0 3px 3px 0;
+  }
+  .feature-icon{
+    width:38px; height:38px; margin-bottom:14px;
+    color:var(--copper-bright);
+  }
+  .feature h3{font-size:1rem; margin-bottom:6px;}
+  .feature p{font-size:0.86rem; color:var(--muted); line-height:1.5;}
+  @media (max-width:880px){ .features{grid-template-columns:repeat(2,1fr);} }
+  @media (max-width:520px){ .features{grid-template-columns:1fr;} }
+
+  /* ===== PRODUCTS ===== */
+  .products{
+    display:grid; grid-template-columns:repeat(3,1fr); gap:22px;
+    max-width:1100px; margin:0 auto; position:relative;
+  }
+  .product-card{
+    background:var(--surface); border:1px solid var(--line); border-radius:18px;
+    overflow:hidden; display:flex; flex-direction:column;
+    transition:border-color .2s ease, transform .2s ease;
+  }
+  .product-card:hover{border-color:var(--copper); transform:translateY(-4px);}
+  .product-media{
+    aspect-ratio:4/3; background:
+      radial-gradient(circle at 30% 20%, rgba(201,124,77,0.18), transparent 60%),
+      var(--surface-2);
+    display:flex; align-items:center; justify-content:center;
+    border-bottom:1px solid var(--line);
+    position:relative;
+  }
+  .product-media .placeholder-note{
+    position:absolute; bottom:8px; right:10px;
+    font-family:'JetBrains Mono'; font-size:0.6rem; color:var(--muted);
+    background:rgba(20,23,28,0.7); padding:3px 8px; border-radius:6px;
+  }
+  .product-media svg{width:56%; height:56%; color:var(--copper-bright);}
+  .product-body{padding:22px; display:flex; flex-direction:column; gap:10px; flex:1;}
+  .product-name{font-size:1.1rem; font-weight:700; font-family:'Space Grotesk';}
+  .product-desc{font-size:0.86rem; color:var(--muted); flex:1;}
+  .product-price{
+    font-family:'JetBrains Mono'; font-size:1.2rem; color:var(--copper-bright); font-weight:600;
+  }
+  .product-buy{
+    margin-top:6px;
+    display:flex; align-items:center; justify-content:center; gap:8px;
+    background:var(--copper); color:#191510; padding:12px; border-radius:10px;
+    font-weight:600; font-size:0.9rem;
+    transition:background .15s ease;
+  }
+  .product-buy:hover{background:var(--copper-bright);}
+  .product-buy svg{width:16px; height:16px;}
+  @media (max-width:880px){ .products{grid-template-columns:1fr 1fr;} }
+  @media (max-width:560px){ .products{grid-template-columns:1fr;} }
+
+  /* ===== CONTACT / ORDER ===== */
+  .contact{
+    background:var(--surface); border:1px solid var(--line); border-radius:22px;
+    max-width:1100px; margin:0 auto; padding:48px 36px;
+    display:grid; grid-template-columns:1.1fr 0.9fr; gap:40px; align-items:center;
+  }
+  .contact h2{font-size:1.7rem; margin-bottom:12px;}
+  .contact p{color:var(--muted); margin-bottom:24px; font-size:0.96rem;}
+  .contact-list{display:flex; flex-direction:column; gap:14px;}
+  .contact-row{
+    display:flex; align-items:center; gap:12px;
+    font-size:0.94rem;
+  }
+  .contact-row .ic{
+    width:38px; height:38px; border-radius:10px; background:var(--surface-2);
+    display:flex; align-items:center; justify-content:center; flex-shrink:0;
+    color:var(--copper-bright);
+  }
+  .contact-row .ic svg{width:18px; height:18px;}
+  .contact-row a:hover{color:var(--copper-bright);}
+  .contact-cta{
+    background:var(--surface-2); border:1px solid var(--line); border-radius:16px;
+    padding:28px; text-align:center;
+  }
+  .contact-cta .mono{font-size:0.72rem; color:var(--muted); text-transform:uppercase; letter-spacing:0.08em; display:block; margin-bottom:8px;}
+  .contact-cta .big-btn{
+    display:block; width:100%; background:var(--copper); color:#191510;
+    padding:16px; border-radius:12px; font-weight:700; font-size:1rem; margin-top:14px;
+  }
+  .contact-cta .big-btn:hover{background:var(--copper-bright);}
+  @media (max-width:780px){ .contact{grid-template-columns:1fr;} }
+
+  /* ===== FOOTER ===== */
+  footer{
+    border-top:1px solid var(--line); padding:32px 24px; text-align:center;
+    color:var(--muted); font-size:0.84rem;
+  }
+  footer .logo{justify-content:center; margin-bottom:10px;}
+
+  /* ===== QTY SELECTOR (on product card) ===== */
+  .qty-row{
+    display:flex; align-items:center; gap:14px;
+    margin-top:2px;
+  }
+  .qty-btn{
+    width:32px; height:32px; border-radius:8px;
+    background:var(--surface-2); border:1px solid var(--line); color:var(--cream);
+    font-size:1.05rem; line-height:1; cursor:pointer;
+    display:flex; align-items:center; justify-content:center;
+    transition:border-color .15s ease, background .15s ease;
+  }
+  .qty-btn:hover{border-color:var(--copper);}
+  .qty-btn.small{width:26px; height:26px; font-size:0.95rem;}
+  .qty-value{
+    font-family:'JetBrains Mono'; font-size:0.95rem; min-width:18px; text-align:center;
+  }
+  .product-buy{
+    border:none; cursor:pointer; font-family:'Inter', sans-serif;
+  }
+  .product-buy.added{ background:#6FBF7A !important; color:#102014 !important; }
+
+  /* ===== FLOATING CART BUTTON ===== */
+  .cart-fab{
+    position:fixed; right:22px; bottom:22px; z-index:90;
+    width:56px; height:56px; border-radius:50%;
+    background:var(--copper); color:#191510; border:none; cursor:pointer;
+    display:flex; align-items:center; justify-content:center;
+    box-shadow:0 10px 28px rgba(201,124,77,0.35);
+    transition:transform .15s ease, background .15s ease;
+  }
+  .cart-fab:hover{ background:var(--copper-bright); transform:translateY(-2px); }
+  .cart-fab svg{ width:24px; height:24px; }
+  .cart-count{
+    position:absolute; top:-4px; right:-4px;
+    background:#E0524A; color:#fff; font-family:'JetBrains Mono'; font-size:0.68rem; font-weight:600;
+    min-width:20px; height:20px; border-radius:999px;
+    display:flex; align-items:center; justify-content:center; padding:0 5px;
+    border:2px solid var(--bg);
+  }
+
+  /* ===== CART / CHECKOUT PANEL ===== */
+  .cart-overlay{
+    position:fixed; inset:0; z-index:100;
+    background:rgba(10,12,15,0.6);
+    display:flex; justify-content:flex-end;
+    opacity:0; pointer-events:none;
+    transition:opacity .2s ease;
+  }
+  .cart-overlay.open{ opacity:1; pointer-events:auto; }
+  .cart-panel{
+    width:min(420px, 100%); height:100%;
+    background:var(--surface); border-left:1px solid var(--line);
+    display:flex; flex-direction:column;
+    transform:translateX(100%);
+    transition:transform .25s ease;
+  }
+  .cart-overlay.open .cart-panel{ transform:translateX(0); }
+  .cart-head{
+    display:flex; align-items:center; justify-content:space-between;
+    padding:20px 22px; border-bottom:1px solid var(--line);
+  }
+  .cart-head h3{ font-size:1.15rem; }
+  .cart-close{
+    width:34px; height:34px; border-radius:8px; border:1px solid var(--line);
+    background:var(--surface-2); color:var(--cream); cursor:pointer; font-size:0.95rem;
+  }
+  .cart-close:hover{ border-color:var(--copper); }
+  .cart-empty{
+    flex:1; display:flex; flex-direction:column; align-items:center; justify-content:center;
+    text-align:center; gap:6px; padding:30px; color:var(--muted);
+  }
+  .cart-empty p{ color:var(--cream); font-weight:600; }
+  .cart-empty span{ font-size:0.85rem; max-width:240px; }
+  .cart-items{
+    flex:1; overflow-y:auto; padding:14px 18px; display:flex; flex-direction:column; gap:12px;
+  }
+  .cart-item{
+    display:grid; grid-template-columns:1fr auto auto auto; align-items:center; gap:10px;
+    background:var(--surface-2); border:1px solid var(--line); border-radius:12px; padding:12px 14px;
+  }
+  .cart-item-name{ font-weight:600; font-size:0.92rem; }
+  .cart-item-price{ font-size:0.74rem; color:var(--muted); margin-top:2px; }
+  .cart-item-controls{ display:flex; align-items:center; gap:8px; }
+  .cart-item-subtotal{ font-size:0.84rem; color:var(--copper-bright); white-space:nowrap; }
+  .cart-item-remove{
+    background:none; border:none; color:var(--muted); cursor:pointer; font-size:0.9rem;
+    width:24px; height:24px; border-radius:6px;
+  }
+  .cart-item-remove:hover{ color:#E0524A; background:rgba(224,82,74,0.1); }
+  /* ===== PAYMENT METHOD ===== */
+  .cart-payment{
+    padding:16px 22px 4px;
+    border-top:1px solid var(--line);
+  }
+  .payment-label{
+    display:block; font-size:0.7rem; color:var(--muted);
+    text-transform:uppercase; letter-spacing:0.08em; margin-bottom:10px;
+  }
+  .pay-tabs{
+    display:flex; gap:8px; margin-bottom:16px;
+  }
+  .pay-tab{
+    flex:1; padding:9px 10px; border-radius:9px;
+    background:var(--surface-2); border:1px solid var(--line); color:var(--muted);
+    font-size:0.82rem; font-weight:600; cursor:pointer;
+    transition:border-color .15s ease, color .15s ease, background .15s ease;
+  }
+  .pay-tab:hover{ color:var(--cream); }
+  .pay-tab.active{
+    background:rgba(201,124,77,0.14); border-color:var(--copper); color:var(--copper-bright);
+  }
+  .pay-panel{ display:flex; flex-direction:column; align-items:center; text-align:center; gap:10px; }
+  .qr-box{
+    background:#fff; padding:14px; border-radius:14px;
+    width:160px; height:160px; display:flex; align-items:center; justify-content:center;
+  }
+  #qrCanvas img, #qrCanvas canvas{ width:132px !important; height:132px !important; }
+  .pay-note{ font-size:0.82rem; color:var(--muted); max-width:300px; }
+  .pay-todo{
+    font-size:0.72rem; color:#E0A24A; background:rgba(224,162,74,0.1);
+    border:1px solid rgba(224,162,74,0.3); border-radius:8px; padding:8px 10px;
+    max-width:320px; line-height:1.45;
+  }
+  .pay-todo code{ font-family:'JetBrains Mono'; }
+  .bank-card{
+    width:100%; max-width:280px; background:var(--surface-2); border:1px solid var(--line);
+    border-radius:14px; padding:18px; text-align:left;
+  }
+  .bank-tag{ font-size:0.68rem; color:var(--copper-bright); text-transform:uppercase; letter-spacing:0.08em; }
+  .bank-name{ font-size:0.92rem; font-weight:600; margin-top:8px; }
+  .bank-number{ font-size:1.05rem; color:var(--cream); margin-top:6px; letter-spacing:0.04em; }
+
+  .cart-footer{
+    border-top:1px solid var(--line); padding:18px 22px 24px;
+  }
+  .cart-total-row{
+    width:100%; display:flex; justify-content:space-between; align-items:center;
+    font-size:1rem; font-weight:700; margin-bottom:14px;
+    background:none; border:none; cursor:pointer; color:var(--cream);
+    font-family:'Inter', sans-serif; padding:8px 0;
+  }
+  .total-hint{
+    display:block; font-size:0.66rem; font-weight:500; color:var(--muted);
+    text-transform:none; letter-spacing:0; margin-top:2px;
+  }
+  .total-right{ display:flex; align-items:center; gap:8px; }
+  .cart-total-row .mono{ color:var(--copper-bright); font-size:1.1rem; }
+  .chevron{ width:18px; height:18px; color:var(--muted); transition:transform .2s ease; flex-shrink:0; }
+  .cart-total-row.expanded .chevron{ transform:rotate(180deg); }
+  #cartCheckoutBtn{ border:none; cursor:pointer; width:100%; font-family:'Inter', sans-serif; }
+
+  /* ===== PAYMENT METHOD ===== */
+  .cart-payment{
+    padding:4px 0 18px;
+  }
+
+  @media (max-width:480px){
+    .cart-item{ grid-template-columns:1fr auto; row-gap:8px; }
+    .cart-item-subtotal{ grid-column:1 / 2; }
+    .cart-item-remove{ grid-column:2 / 3; justify-self:end; }
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    .pulse-dot{animation:none;}
+    html{scroll-behavior:auto;}
+    .cart-overlay, .cart-panel{ transition:none; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <nav class="wrap">
+    <div class="logo">
+      <!-- TODO: ganti div ini dengan <img src="logo-kamu.png"> setelah logo jadi -->
+      <div class="logo-badge">MC</div>
+      <div>
+        Malala Cell
+        <span class="logo-note">aksesoris hp &amp; data</span>
+      </div>
+    </div>
+    <div class="nav-links">
+      <a href="#produk">Produk</a>
+      <a href="#kenapa">Kenapa Kami</a>
+      <a href="#kontak">Kontak</a>
+    </div>
+    <a class="nav-cta" href="https://wa.me/6283876885063?text=Halo%20Malala%20Cell%2C%20saya%20mau%20tanya-tanya%20produk" target="_blank" rel="noopener">Chat WA</a>
+  </nav>
+</header>
+
+<section class="hero">
+  <span class="eyebrow"><span class="pulse-dot"></span> Buka tiap hari · Respon cepat</span>
+  <h1>Aksesoris HP yang <span>nyambung</span>, tanpa drama.</h1>
+  <p>Handset, hardisk, sampai kabel data — semua kebutuhan colok-mencolok kamu, harga bersahabat, langsung dari Malala Cell.</p>
+  <div class="hero-actions">
+    <a class="btn-primary" href="#produk">Lihat Produk</a>
+    <a class="btn-ghost" href="https://wa.me/6283876885063" target="_blank" rel="noopener">Chat Admin</a>
+  </div>
+
+  <div class="connector-visual" aria-hidden="true">
+    <svg viewBox="0 0 640 64" fill="none">
+      <path d="M20 32 C 160 32, 160 8, 320 8 S 480 56, 620 32" stroke="#C97C4D" stroke-width="2" stroke-dasharray="1 10" stroke-linecap="round"/>
+      <circle cx="20" cy="32" r="6" fill="#1C2127" stroke="#C97C4D" stroke-width="2"/>
+      <circle cx="320" cy="8" r="5" fill="#E0975F"/>
+      <circle cx="620" cy="32" r="6" fill="#1C2127" stroke="#C97C4D" stroke-width="2"/>
+    </svg>
+  </div>
+</section>
+
+<section class="section" id="kenapa">
+  <div class="section-head">
+    <span class="section-tag">Kenapa Malala Cell</span>
+    <h2>Belanja aksesoris, beres dalam sekali chat</h2>
+    <p>Produk dipilih yang awet dipakai harian, bukan cuma murah di awal.</p>
+  </div>
+  <div class="features">
+    <div class="feature">
+      <svg class="feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 2v6m0 8v6M2 12h6m8 0h6" stroke-linecap="round"/><circle cx="12" cy="12" r="3"/></svg>
+      <h3>Harga Bersahabat</h3>
+      <p>Mulai dari Rp 20.000, cocok buat kantong pelajar sampai pekerja.</p>
+    </div>
+    <div class="feature">
+      <svg class="feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      <h3>Barang Dicek Dulu</h3>
+      <p>Setiap unit dites nyala &amp; nyambung sebelum dikirim ke kamu.</p>
+    </div>
+    <div class="feature">
+      <svg class="feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M21 11.5a8.5 8.5 0 1 1-4.1-7.3L21 3l-1.2 4.1A8.4 8.4 0 0 1 21 11.5Z"/></svg>
+      <h3>Fast Respon WA</h3>
+      <p>Tinggal chat, tanya stok dan harga langsung dibalas admin.</p>
+    </div>
+    <div class="feature">
+      <svg class="feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M3 9h18M9 21V9" stroke-linecap="round"/></svg>
+      <h3>Bisa COD &amp; Antar</h3>
+      <p>Atur metode bayar &amp; ambil barang langsung lewat chat WhatsApp.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="produk">
+  <div class="section-head">
+    <span class="section-tag">Produk</span>
+    <h2>Tiga aksesoris paling dicari</h2>
+    <p>Atur jumlah, tambah ke keranjang, lalu checkout sekaligus lewat WhatsApp.</p>
+  </div>
+
+  <div class="products">
+
+    <!-- Produk 1: Handset -->
+    <div class="product-card">
+      <div class="product-media">
+        <img src="handset.jpg" alt="Handset Malala Cell" style="width:100%; height:100%; object-fit:cover;">
+      </div>
+      <div class="product-body">
+        <div class="product-name">Handset</div>
+        <p class="product-desc">Handsfree harian buat telepon &amp; dengerin musik, suara jernih, kabel kuat.</p>
+        <div class="product-price">Rp 20.000</div>
+        <div class="qty-row">
+          <button type="button" class="qty-btn" onclick="changeQty('handset', -1)" aria-label="Kurangi jumlah Handset">−</button>
+          <span class="qty-value" id="qty-handset">1</span>
+          <button type="button" class="qty-btn" onclick="changeQty('handset', 1)" aria-label="Tambah jumlah Handset">+</button>
+        </div>
+        <button type="button" class="product-buy" onclick="addToCart('handset','Handset',20000)">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="20" r="1.4" fill="currentColor" stroke="none"/><circle cx="17" cy="20" r="1.4" fill="currentColor" stroke="none"/><path d="M2 3h2l2.6 12.4a2 2 0 0 0 2 1.6h7.8a2 2 0 0 0 2-1.6L21 7H6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          Tambah ke Keranjang
+        </button>
+      </div>
+    </div>
+
+    <!-- Produk 2: Hardisk -->
+    <div class="product-card">
+      <div class="product-media">
+        <img src="hardisk.jpg" alt="Hardisk Malala Cell" style="width:100%; height:100%; object-fit:cover;">
+      </div>
+      <div class="product-body">
+        <div class="product-name">Hardisk</div>
+        <p class="product-desc">Media penyimpanan buat backup data, foto, dan file penting kamu.</p>
+        <div class="product-price">Rp 75.000</div>
+        <div class="qty-row">
+          <button type="button" class="qty-btn" onclick="changeQty('hardisk', -1)" aria-label="Kurangi jumlah Hardisk">−</button>
+          <span class="qty-value" id="qty-hardisk">1</span>
+          <button type="button" class="qty-btn" onclick="changeQty('hardisk', 1)" aria-label="Tambah jumlah Hardisk">+</button>
+        </div>
+        <button type="button" class="product-buy" onclick="addToCart('hardisk','Hardisk',75000)">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="20" r="1.4" fill="currentColor" stroke="none"/><circle cx="17" cy="20" r="1.4" fill="currentColor" stroke="none"/><path d="M2 3h2l2.6 12.4a2 2 0 0 0 2 1.6h7.8a2 2 0 0 0 2-1.6L21 7H6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          Tambah ke Keranjang
+        </button>
+      </div>
+    </div>
+
+    <!-- Produk 3: Kabel Data -->
+    <div class="product-card">
+      <div class="product-media">
+        <img src="kabel-data.jpg" alt="Kabel Data Malala Cell" style="width:100%; height:100%; object-fit:cover;">
+      </div>
+      <div class="product-body">
+        <div class="product-name">Kabel Data</div>
+        <p class="product-desc">Kabel charge &amp; transfer data, kuat dan tahan ditekuk-tekuk tiap hari.</p>
+        <div class="product-price">Rp 25.000</div>
+        <div class="qty-row">
+          <button type="button" class="qty-btn" onclick="changeQty('kabel', -1)" aria-label="Kurangi jumlah Kabel Data">−</button>
+          <span class="qty-value" id="qty-kabel">1</span>
+          <button type="button" class="qty-btn" onclick="changeQty('kabel', 1)" aria-label="Tambah jumlah Kabel Data">+</button>
+        </div>
+        <button type="button" class="product-buy" onclick="addToCart('kabel','Kabel Data',25000)">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="20" r="1.4" fill="currentColor" stroke="none"/><circle cx="17" cy="20" r="1.4" fill="currentColor" stroke="none"/><path d="M2 3h2l2.6 12.4a2 2 0 0 0 2 1.6h7.8a2 2 0 0 0 2-1.6L21 7H6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          Tambah ke Keranjang
+        </button>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ===== FLOATING CART BUTTON ===== -->
+<button type="button" id="cartFab" class="cart-fab" onclick="openCart()" aria-label="Buka keranjang">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="20" r="1.4" fill="currentColor" stroke="none"/><circle cx="17" cy="20" r="1.4" fill="currentColor" stroke="none"/><path d="M2 3h2l2.6 12.4a2 2 0 0 0 2 1.6h7.8a2 2 0 0 0 2-1.6L21 7H6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+  <span id="cartCount" class="cart-count" hidden>0</span>
+</button>
+
+<!-- ===== CART / CHECKOUT PANEL ===== -->
+<div id="cartOverlay" class="cart-overlay" onclick="closeCart(event)">
+  <div class="cart-panel" role="dialog" aria-modal="true" aria-label="Keranjang belanja">
+    <div class="cart-head">
+      <h3>Keranjang Kamu</h3>
+      <button type="button" class="cart-close" onclick="closeCart()" aria-label="Tutup keranjang">✕</button>
+    </div>
+    <div id="cartEmpty" class="cart-empty">
+      <p>Keranjang masih kosong.</p>
+      <span>Pilih jumlah produk lalu tekan "Tambah ke Keranjang".</span>
+    </div>
+    <div id="cartItems" class="cart-items"></div>
+
+    <div id="cartFooter" class="cart-footer" hidden>
+      <button type="button" class="cart-total-row" id="cartTotalRow" onclick="togglePayment()">
+        <span>Total <span class="total-hint">(klik untuk pilih pembayaran)</span></span>
+        <span class="total-right">
+          <span id="cartTotal" class="mono">Rp 0</span>
+          <svg id="totalChevron" class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </span>
+      </button>
+
+      <div id="cartPayment" class="cart-payment" hidden>
+        <span class="payment-label mono">Metode Pembayaran</span>
+        <div class="pay-tabs">
+          <button type="button" class="pay-tab active" data-pay="qris" onclick="selectPayment('qris')">QRIS</button>
+          <button type="button" class="pay-tab" data-pay="transfer" onclick="selectPayment('transfer')">Transfer Bank</button>
+          <button type="button" class="pay-tab" data-pay="cod" onclick="selectPayment('cod')">COD</button>
+        </div>
+
+        <div id="payQris" class="pay-panel">
+          <div class="qr-box">
+            <div id="qrCanvas"></div>
+          </div>
+          <p class="pay-note">Scan pakai aplikasi DANA / OVO / GoPay / m-banking, lalu kirim bukti bayar ke WhatsApp setelah checkout.</p>
+          <p class="pay-todo">⚠️ QR ini contoh. Ganti <code>#qrCanvas</code> di kode dengan QRIS asli (gambar/PNG) dari bank atau e-wallet kamu sebelum dipakai jualan beneran.</p>
+        </div>
+
+        <div id="payTransfer" class="pay-panel" hidden>
+          <div class="bank-card">
+            <span class="mono bank-tag">Transfer Bank</span>
+            <div class="bank-name">Bank Contoh — a.n. Fauzan</div>
+            <div class="bank-number mono">1234 5678 9012</div>
+          </div>
+          <p class="pay-note">Transfer sesuai total, lalu kirim bukti bayar ke WhatsApp setelah checkout.</p>
+          <p class="pay-todo">⚠️ Ganti nama bank, nomor rekening, dan nama pemilik di kode dengan data rekening kamu yang asli.</p>
+        </div>
+
+        <div id="payCod" class="pay-panel" hidden>
+          <p class="pay-note">Bayar tunai langsung saat barang diantar atau diambil. Admin akan konfirmasi jadwal lewat WhatsApp setelah checkout.</p>
+        </div>
+      </div>
+
+      <button type="button" class="big-btn" id="cartCheckoutBtn" onclick="checkoutWA()">Checkout via WhatsApp</button>
+    </div>
+  </div>
+</div>
+
+<script>
+  const PRODUCTS = {
+    handset: { name: 'Handset', price: 20000 },
+    hardisk: { name: 'Hardisk', price: 75000 },
+    kabel:   { name: 'Kabel Data', price: 25000 },
+  };
+  const qtySelect = { handset: 1, hardisk: 1, kabel: 1 };
+  const cart = {}; // { key: quantity }
+  let selectedPayment = 'qris';
+  let qrInstance = null;
+
+  function formatRupiah(n){
+    return 'Rp ' + n.toLocaleString('id-ID');
+  }
+
+  function changeQty(key, delta){
+    const next = qtySelect[key] + delta;
+    if (next < 1 || next > 20) return;
+    qtySelect[key] = next;
+    document.getElementById('qty-' + key).textContent = next;
+  }
+
+  function addToCart(key, name, price){
+    const qty = qtySelect[key];
+    cart[key] = (cart[key] || 0) + qty;
+    renderCart();
+    flashAdded(key);
+    openCart();
+  }
+
+  function flashAdded(key){
+    const btn = document.querySelector('[onclick^="addToCart(\'' + key + '\'"]');
+    if(!btn) return;
+    const original = btn.innerHTML;
+    btn.innerHTML = 'Ditambahkan ✓';
+    btn.classList.add('added');
+    setTimeout(() => { btn.innerHTML = original; btn.classList.remove('added'); }, 1100);
+  }
+
+  function removeFromCart(key){
+    delete cart[key];
+    renderCart();
+  }
+
+  function cartChangeQty(key, delta){
+    const next = (cart[key] || 0) + delta;
+    if (next < 1){ removeFromCart(key); return; }
+    cart[key] = next;
+    renderCart();
+  }
+
+  function renderCart(){
+    const itemsEl = document.getElementById('cartItems');
+    const emptyEl = document.getElementById('cartEmpty');
+    const footerEl = document.getElementById('cartFooter');
+    const paymentEl = document.getElementById('cartPayment');
+    const countEl = document.getElementById('cartCount');
+    const keys = Object.keys(cart).filter(k => cart[k] > 0);
+
+    const totalQty = keys.reduce((sum, k) => sum + cart[k], 0);
+    if (totalQty > 0){
+      countEl.hidden = false;
+      countEl.textContent = totalQty;
+    } else {
+      countEl.hidden = true;
+    }
+
+    if (keys.length === 0){
+      itemsEl.innerHTML = '';
+      emptyEl.style.display = 'flex';
+      footerEl.hidden = true;
+      paymentEl.hidden = true;
+      document.getElementById('cartTotalRow').classList.remove('expanded');
+      return;
+    }
+    emptyEl.style.display = 'none';
+    footerEl.hidden = false;
+
+    let total = 0;
+    itemsEl.innerHTML = keys.map(key => {
+      const p = PRODUCTS[key];
+      const subtotal = p.price * cart[key];
+      total += subtotal;
+      return `
+        <div class="cart-item">
+          <div class="cart-item-info">
+            <div class="cart-item-name">${p.name}</div>
+            <div class="cart-item-price mono">${formatRupiah(p.price)} / pcs</div>
+          </div>
+          <div class="cart-item-controls">
+            <button type="button" class="qty-btn small" onclick="cartChangeQty('${key}', -1)" aria-label="Kurangi ${p.name}">−</button>
+            <span class="qty-value">${cart[key]}</span>
+            <button type="button" class="qty-btn small" onclick="cartChangeQty('${key}', 1)" aria-label="Tambah ${p.name}">+</button>
+          </div>
+          <div class="cart-item-subtotal mono">${formatRupiah(subtotal)}</div>
+          <button type="button" class="cart-item-remove" onclick="removeFromCart('${key}')" aria-label="Hapus ${p.name}">✕</button>
+        </div>`;
+    }).join('');
+
+    document.getElementById('cartTotal').textContent = formatRupiah(total);
+  }
+
+  function togglePayment(){
+    const paymentEl = document.getElementById('cartPayment');
+    const rowEl = document.getElementById('cartTotalRow');
+    const willShow = paymentEl.hidden;
+    paymentEl.hidden = !willShow;
+    rowEl.classList.toggle('expanded', willShow);
+    if (willShow) ensureQr();
+  }
+
+  function ensureQr(){
+    if (qrInstance || typeof QRCode === 'undefined') return;
+    qrInstance = new QRCode(document.getElementById('qrCanvas'), {
+      text: 'Pembayaran Malala Cell - hubungi 083876885063 untuk konfirmasi',
+      width: 132,
+      height: 132,
+      colorDark: '#14171C',
+      colorLight: '#ffffff',
+    });
+  }
+
+  function selectPayment(method){
+    selectedPayment = method;
+    document.querySelectorAll('.pay-tab').forEach(btn => {
+      btn.classList.toggle('active', btn.dataset.pay === method);
+    });
+    document.getElementById('payQris').hidden = method !== 'qris';
+    document.getElementById('payTransfer').hidden = method !== 'transfer';
+    document.getElementById('payCod').hidden = method !== 'cod';
+  }
+
+  function openCart(){
+    document.getElementById('cartOverlay').classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeCart(e){
+    if (e && e.target !== e.currentTarget) return;
+    document.getElementById('cartOverlay').classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
+  function checkoutWA(){
+    const keys = Object.keys(cart).filter(k => cart[k] > 0);
+    if (keys.length === 0) return;
+    const paymentLabel = { qris: 'QRIS', transfer: 'Transfer Bank', cod: 'COD (Bayar di Tempat)' }[selectedPayment];
+    let total = 0;
+    let lines = ['Halo Malala Cell, saya mau pesan:'];
+    keys.forEach(key => {
+      const p = PRODUCTS[key];
+      const subtotal = p.price * cart[key];
+      total += subtotal;
+      lines.push(`- ${p.name} x${cart[key]} = ${formatRupiah(subtotal)}`);
+    });
+    lines.push(`Total: ${formatRupiah(total)}`);
+    lines.push(`Metode bayar: ${paymentLabel}`);
+    const message = encodeURIComponent(lines.join('\n'));
+    window.open(`https://wa.me/6283876885063?text=${message}`, '_blank');
+  }
+</script>
+
+<section class="section" id="kontak">
+  <div class="contact">
+    <div>
+      <h2>Masih bingung pilih yang mana?</h2>
+      <p>Chat aja dulu, admin bantu rekomendasiin sesuai kebutuhan HP kamu.</p>
+      <div class="contact-list">
+        <div class="contact-row">
+          <span class="ic"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.5 2 2 6.5 2 12c0 1.8.5 3.5 1.3 5L2 22l5.2-1.3c1.5.8 3.1 1.3 4.8 1.3 5.5 0 10-4.5 10-10S17.5 2 12 2z"/></svg></span>
+          <a href="https://wa.me/6283876885063" target="_blank" rel="noopener">0838-7688-5063 (WhatsApp)</a>
+        </div>
+        <div class="contact-row">
+          <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1"/></svg></span>
+          <a href="https://instagram.com/Ffauzan_25" target="_blank" rel="noopener">@Ffauzan_25</a>
+        </div>
+        <div class="contact-row">
+          <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 22s7-7.5 7-12.5a7 7 0 1 0-14 0C5 14.5 12 22 12 22Z"/><circle cx="12" cy="9.5" r="2.5"/></svg></span>
+          <span>Sidoarjo, Jawa Timur</span>
+        </div>
+      </div>
+    </div>
+    <div class="contact-cta">
+      <span class="mono">Checkout Cepat</span>
+      <p style="color:var(--muted); font-size:0.88rem;">Satu klik langsung ke WhatsApp, tinggal sebutin produk &amp; jumlahnya.</p>
+      <a class="big-btn" href="https://wa.me/6283876885063?text=Halo%20Malala%20Cell%2C%20saya%20mau%20pesan%20produk" target="_blank" rel="noopener">Pesan via WhatsApp</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="logo">
+    <div class="logo-badge">MC</div>
+    <div>Malala Cell</div>
+  </div>
+  <p>&copy; 2026 Malala Cell — Aksesoris HP, Sidoarjo. Dibuat untuk tugas Ekonomi Digital.</p>
+</footer>
+
+</body>
+</html>
